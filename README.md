@@ -4,6 +4,7 @@ WiringPi / WiringOP libary for the Orange Pi Zero with 26 pin GPIO header
 
 This is a modified WiringPi for specially OrangePi Zero. 
 
+GPIO is fully working, i2c and Spi not testet yet!
 
 
 ## Download
