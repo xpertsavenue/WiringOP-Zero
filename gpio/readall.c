@@ -186,7 +186,7 @@ static int physToWpi [64] =
 //guenter orange pi
 static char *physNames [64] = 
 {
-  NULL,
+      NULL,
 
  "    3.3v", "5v      ",
  "   SDA.0", "5V      ",
@@ -203,7 +203,6 @@ static char *physNames [64] =
  "      0v", "GPIO.11 ",
        NULL, NULL,
        NULL, NULL,
-       NULL, NULL,,
        NULL, NULL,
        NULL, NULL,
        NULL, NULL,
@@ -215,7 +214,12 @@ static char *physNames [64] =
        NULL, NULL,
        NULL, NULL,
        NULL, NULL,
-   NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
+       NULL, NULL,
+	   NULL, NULL,
+	   NULL, NULL,
+	   NULL, NULL,
+	   NULL, NULL,
+	   NULL,
 } ;
 // guenter ende
 //Beckert
@@ -387,8 +391,7 @@ void BPReadAll(void)
 }
 //end 2014.09.26
 
-//Beckert
-//guenter 
+// changed by Christian Beckert
 void OrangePiReadAll(void)
 {
   int pin ;
@@ -400,10 +403,9 @@ void OrangePiReadAll(void)
     readallPhys (pin) ;
   printf (" +-----+-----+----------+------+---+----++----+---+------+----------+-----+-----+\n") ;
   printf (" | BCM | wPi |   Name   | Mode | V | Physical | V | Mode | Name     | wPi | BCM |\n") ;
-  printf (" +-----+-----+----------+------+---+-Orange Pi+---+------+----------+-----+-----+\n") ;	
+  printf (" +-----+-----+----------+------+Orange Pi Zero+---+------+----------+-----+-----+\n") ;	
 }
-//guenter ende
-//Beckert
+// changed by Christian Beckert
 
 void doReadall (void)
 {
@@ -424,8 +426,7 @@ void doReadall (void)
   else if (model == PI_MODEL_CM)
     cmReadall () ;
   else if (model == PI_MODEL_BPR) //add for BananaPro by lemaker team
-	 OrangePiReadAll();	//guenter //Beckert 
-  	 // guenter BPReadAll(); //Beckert
+	 OrangePiReadAll();	//guenter / // changed by Christian Beckert 
   else
     printf ("Oops - unable to determine board type... model: %d\n", model) ;
 }
