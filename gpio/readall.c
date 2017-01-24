@@ -114,7 +114,7 @@ static char *alts [] =
 } ; 
 guenter ende */
 
-//Beckert
+// iO Beckert
 // guenter anfang
 static int physToWpi [64] =
 {
@@ -145,59 +145,22 @@ static int physToWpi [64] =
    -1, -1, -1, -1, -1, -1, -1, -1 // 56-> 63
 } ;
 //guenter ende
-//Beckert
 
-
-/* guenter static char *physNames [64] = 
-{
-  NULL,
-
-  "   3.3v", "5v     ",
-  "  SDA.1", "5V     ",
-  "  SCL.1", "0v     ",
-  "GPIO. 7", "TxD    ",
-  "     0v", "RxD    ",
-  "GPIO. 0", "GPIO. 1",
-  "GPIO. 2", "0v     ",
-  "GPIO. 3", "GPIO. 4",
-  "   3.3v", "GPIO. 5",
-  "   MOSI", "0v     ",
-  "   MISO", "GPIO. 6",
-  "   SCLK", "CE0    ",
-  "     0v", "CE1    ",
-  "  SDA.0", "SCL.0  ",
-  "GPIO.21", "0v     ",
-  "GPIO.22", "GPIO.26",
-  "GPIO.23", "0v     ",
-  "GPIO.24", "GPIO.27",
-  "GPIO.25", "GPIO.28",
-  "     0v", "GPIO.29",
-       NULL, NULL,
-       NULL, NULL,
-       NULL, NULL,
-       NULL, NULL,
-       NULL, NULL,
-  "GPIO.17", "GPIO.18",
-  "GPIO.19", "GPIO.20",
-   NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
-} ;	guenter ende */
-
-//Beckert
-//guenter orange pi
+// changed by Christian Beckert
 static char *physNames [64] = 
 {
       NULL,
 
- "    3.3v", "5v      ",
+ "    3.3V", "5V      ",
  "   SDA.0", "5V      ",
- "   SCL.0", "0v      ",
- "  GPIO.7", "TxD3    ",
- "      0v", "RxD3    ",
+ "   SCL.0", "0V      ",
+ "  GPIO.7", "TxD1    ",
+ "      0v", "RxD1    ",
  "    RxD2", "GPIO.1  ",
- "    TxD2", "0v      ",
+ "    TxD2", "0V      ",
  "    CTS2", "GPIO.4  ",
  "    3.3v", "GPIO.5  ",
- "    MOSI", "0v      ",
+ "    MOSI", "0V      ",
  "    MISO", "RTS2    ",
  "    SCLK", "CE0     ",
  "      0v", "GPIO.11 ",
@@ -221,8 +184,7 @@ static char *physNames [64] =
 	   NULL, NULL,
 	   NULL,
 } ;
-// guenter ende
-//Beckert
+// changed by Christian Beckert
 
 
 
