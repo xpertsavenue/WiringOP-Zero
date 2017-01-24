@@ -291,7 +291,7 @@ static pthread_mutex_t pinMutex ;
 
 // Debugging & Return codes
 
-int wiringPiDebug       = FALSE;  // guenter FALSE ;
+int wiringPiDebug       = FALSE; 
 int wiringPiReturnCodes = FALSE ;
 
 // sysFds:
@@ -621,31 +621,9 @@ static int *physToPin ;
 
 static int upDnConvert[3] = {0, 2, 1};
 
-/* guenter static int pinToGpio_BP [64] =
-{
-  275,259,
- 274,273,
- 244,245,
- 272,226,
- 53,52,
- 266,270,
- 268,269,
- 267,228,
- 229, -1,
- -1, -1,
- -1,  35, 
- 277,45, 
- 39, 37, 
- 276,38, 
- 44,40,
- 257,256,      // ...31
 
- -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, // ... 47
-  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,// ... 63
-} ; guenter ende */ 
-
-//Beckert
-// WiringPiNr. gegeben .. -> Array GPIOx orange pi guenter neu
+// changed by Christian Beckert
+// WiringPiNr. gegeben .. -> Array GPIOx orange pi
 // A ab 0x00, B ab 0x20, C ab 0x40, D ab 0x50 ......
 // 00 - 31 = PA00-PA31
 // 32 - 63 = PB00-PB31
@@ -672,8 +650,7 @@ static int pinToGpio_BP [64] =
  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, // ... 47
   -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,// ... 63
 } ;
-// guenter neu ende
-//Beckert
+// changed by Christian Beckert
 
 
 // guenter ... dieses braucht nicht umgewandelt werden, da kein /sys/class/gpio auf orange pi
@@ -715,37 +692,9 @@ static int pinTobcm_BP [64] =
   -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, //45... 60
   -1, -1, -1, -1                                                                   // ...63
 } ;
-/* guenter 
-static int physToGpio_BP [64] =
-{
-  -1,          // 0
-  -1,     -1,     //1, 2
-   53,    -1,     //3, 4
-   52,    -1,     //5, 6
-   226,  228,   //7, 8
-  -1,     229,   //9, 10
-  275,   259,   //11, 12
-  274,   -1,     //13, 14
-  273,   244,   //15, 16
-  -1,     245,   //17, 18
-  268,   -1,     //19, 20
-   269,  272,   //21, 22
-  267,   266,   //23, 24
-  -1,    270,   //25, 26
-  257,   256,  //27, 28
-  35,    -1,    //29, 30
-  277,  276,   //31, 32      
-  45,   -1,      //33, 34
-  39,   38,    //35, 36
-  37,   44,     //37, 38
-  -1,   40,    //39, 40
-   -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, //41-> 55
-   -1, -1, -1, -1, -1, -1, -1, -1 // 56-> 63
-} ;
-guenter ende */
 
-//Beckert
-//guenter anfang 
+
+// changed by Christian Beckert
 static int physToGpio_BP [64] =
 {
   -1,          // 0
@@ -774,8 +723,7 @@ static int physToGpio_BP [64] =
    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, //41-> 55
    -1, -1, -1, -1, -1, -1, -1, -1 // 56-> 63
 } ;
-// guenter ende
-//Beckert
+// changed by Christian Beckert
 
 
 
@@ -877,23 +825,7 @@ static int physToPinR3 [64] = //return wiringPI pin
   -1, -1, -1, -1, -1, -1, -1, 	// ... 63
 } ;
 
-/* guenter raus
-static int BP_PIN_MASK[9][32] =  //[BANK]  [INDEX]
-{
- {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,},//PA
- {-1,-1,-1, 3,-1,  5,  6, 7,  8,-1,-1,-1,12,13,-1,-1,-1,-1,-1,-1,20,21,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,},//PB
- {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,},//PC
- {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,},//PD
- {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,},//PE
- {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,},//PF
- {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,},//PG
- {-1,-1,  2,-1, 4,  5,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,20,21,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,},//PH
- {0,1,-1,3,-1,-1,-1,-1,-1,-1,10,11,12,13,14,-1,16,17,18,19,20,21,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,},//PI
-};
- guenter ende */ 
-
- //Beckert
-// guenter anfang ... welche pins werden freigegeben .. -1 = gesperrt
+// changed by Christian Beckert ... welche pins werden freigegeben .. -1 = gesperrt
 static int BP_PIN_MASK[9][32] =  //[BANK]  [INDEX]
 {
  { 0, 1, 2, 3,-1,-1, 6, 7,-1,-1,10,11,12,13,14,15,16,-1,18,19,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,},//PA
@@ -906,8 +838,7 @@ static int BP_PIN_MASK[9][32] =  //[BANK]  [INDEX]
  {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,},//PH
  {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,},//PI
 };
-// guenter ende
-//Beckert
+// changed by Christian Beckert
 
 
 static int version=0;
@@ -1339,9 +1270,7 @@ int isA20(void)
 }
 /*end 2014.09.18*/
 
-
-//Beckert
-/*add for H3 guenter*/
+/*add for H3/2+ guenter / changed by Christian Beckert*/
 int isH3(void)
 {
   FILE *cpuFd ;
@@ -1377,8 +1306,7 @@ int isH3(void)
 		return 0 ;
 	}
 }
-/* guenter ende */
-//Beckert
+// changed by Christian Beckert
 
 
 
@@ -1391,7 +1319,7 @@ int piBoardRev (void)
   char *c ;
   static int  boardRev = -1 ;
 
-/*add for orange pi guenter */ //Beckert
+/*add for orange pi guenter */
   if(isH3())			//guenter if(isA20()) //Beckert
   {
 	version = BPRVER;
