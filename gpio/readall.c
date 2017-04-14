@@ -80,41 +80,7 @@ static char *alts [] =
   "IN", "OUT", "ALT5", "ALT4", "ALT0", "ALT1", "ALT2", "ALT3"
 } ;
 
-/* guenter static int physToWpi [64] = 
-{
-  -1,           // 0
-  -1, -1,       // 1, 2
-   8, -1,
-   9, -1,
-   7, 15,
-  -1, 16,
-   0,  1,
-   2, -1,
-   3,  4,
-  -1,  5,
-  12, -1,
-  13,  6,
-  14, 10,
-  -1, 11,       // 25, 26
-  30, 31,	// Actually I2C, but not used
-  21, -1,
-  22, 26,
-  23, -1,
-  24, 27,
-  25, 28,
-  -1, 29,
-  -1, -1,
-  -1, -1,
-  -1, -1,
-  -1, -1,
-  -1, -1,
-  -1, -1,
-  -1, -1,
-  -1, -1, -1, -1, -1, -1, -1, -1, -1
-} ; 
-guenter ende */
-
-// iO Beckert
+//Beckert
 // guenter anfang
 static int physToWpi [64] =
 {
@@ -134,7 +100,8 @@ static int physToWpi [64] =
   14,  10,   //23, 24
   -1,  11,   //25, 26
   
-  -1,  -1,   //27, 28
+  30,  -1,   //27, 28
+  
   -1,  -1,   //29, 30
   -1,  -1,   //31, 32
   -1,  -1,   //33, 34
@@ -145,26 +112,30 @@ static int physToWpi [64] =
    -1, -1, -1, -1, -1, -1, -1, -1 // 56-> 63
 } ;
 //guenter ende
+//Beckert
 
-// changed by Christian Beckert
+//Beckert
+//guenter orange pi
 static char *physNames [64] = 
 {
       NULL,
 
- "    3.3V", "5V      ",
+ "    3.3v", "5v      ",
  "   SDA.0", "5V      ",
- "   SCL.0", "0V      ",
- "  GPIO.7", "TxD1    ",
- "      0v", "RxD1    ",
+ "   SCL.0", "0v      ",
+ "  GPIO.7", "TxD3    ",
+ "      0v", "RxD3    ",
  "    RxD2", "GPIO.1  ",
- "    TxD2", "0V      ",
+ "    TxD2", "0v      ",
  "    CTS2", "GPIO.4  ",
  "    3.3v", "GPIO.5  ",
- "    MOSI", "0V      ",
+ "    MOSI", "0v      ",
  "    MISO", "RTS2    ",
  "    SCLK", "CE0     ",
  "      0v", "GPIO.11 ",
-       NULL, NULL,
+ 
+ "STAT-LED", "PWR-LED ",
+ 
        NULL, NULL,
        NULL, NULL,
        NULL, NULL,
@@ -184,7 +155,8 @@ static char *physNames [64] =
 	   NULL, NULL,
 	   NULL,
 } ;
-// changed by Christian Beckert
+// guenter ende
+//Beckert
 
 
 
@@ -358,14 +330,16 @@ void OrangePiReadAll(void)
 {
   int pin ;
 
-  printf (" +-----+-----+----------+------+Orange Pi Zero+---+---+------+---------+-----+--+\n") ;
-  printf (" | BCM | wPi |   Name   | Mode | V | Physical | V | Mode | Name     | wPi | BCM |\n") ;
+  printf (" +-----+-----+----------+------+--Orange Pi Zero--+---+------+---------+-----+--+\n") ;
+  printf (" | H2+ | wPi |   Name   | Mode | V | Physical | V | Mode | Name     | wPi | H2+ |\n") ;
   printf (" +-----+-----+----------+------+---+----++----+---+------+----------+-----+-----+\n") ;
   for (pin = 1 ; pin <= 26 ; pin += 2)
     readallPhys (pin) ;
-  printf (" +-----+-----+----------+------+---+----++----+---+------+----------+-----+-----+\n") ;
-  printf (" | BCM | wPi |   Name   | Mode | V | Physical | V | Mode | Name     | wPi | BCM |\n") ;
-  printf (" +-----+-----+----------+------+Orange Pi Zero+---+------+----------+-----+-----+\n") ;	
+  printf (" +-----+-----+----------+------+---+---LEDs---+---+------+----------+-----+-----+\n") ;	
+  readallPhys (27) ;
+  printf (" +-----+-----+----------+------+---+-----+----+---+------+----------+-----+-----+\n") ;
+  printf (" | H2+ | wPi |   Name   | Mode | V | Physical | V | Mode | Name     | wPi | H2+ |\n") ;	
+   printf (" +-----+-----+----------+------+--Orange Pi Zero--+---+------+---------+-----+--+\n") ;	
 }
 // changed by Christian Beckert
 
