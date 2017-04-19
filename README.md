@@ -8,13 +8,13 @@ GPIO is fully working, i2c and Spi not testet yet!
 
 
 ## Download
-### For Orangepi Pi
     git clone https://github.com/xpertsavenue/WiringOP-Zero.git
 ## Installation
     cd WiringOP-Zero
     chmod +x ./build
     sudo ./build
 
+## Test
 ```    
 christian@orangepizero:~/WiringOP-Zero$ gpio readall
  +-----+-----+----------+------+--Orange Pi Zero--+---+------+---------+-----+--+
@@ -39,9 +39,16 @@ christian@orangepizero:~/WiringOP-Zero$ gpio readall
  | H2+ | wPi |   Name   | Mode | V | Physical | V | Mode | Name     | wPi | H2+ |
  +-----+-----+----------+------+--Orange Pi Zero--+---+------+---------+-----+--+
 
-
-
 ```    
+To control red LED on the board run for example this:
+```
+gpio write 30 0 
+```
+and to turn off this
+```
+gpio write 30 0 
+```
+
 Thanks to zhaolei, who created the base libary for this one!
 
 
