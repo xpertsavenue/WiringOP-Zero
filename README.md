@@ -42,7 +42,7 @@ christian@orangepizero:~/WiringOP-Zero$ gpio readall
 ```    
 To control red LED on the board run for example this:
 ```
-gpio write 30 0 
+gpio write 30 1 
 ```
 and to turn off this
 ```
