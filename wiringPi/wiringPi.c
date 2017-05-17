@@ -257,7 +257,7 @@ const char *piModelNames [6] =
   "Model B",
   "Model B+",
   "Compute Module",
-  "Banana Pro",    //add for BananaPro by LeMaker team
+  "Orange Pi Zero",  
 } ;
 
 const char *piRevisionNames [5] =
@@ -269,13 +269,12 @@ const char *piRevisionNames [5] =
   "2",
 } ;
 
-const char *piMakerNames [5] =
+const char *piMakerNames [4] =
 {
   "Unknown",
   "Egoman",
   "Sony",
   "Qusda",
-  "LeMaker", //add for BananaPro by LeMaker team
 } ;
 
 
@@ -1468,9 +1467,9 @@ void piBoardId (int *model, int *rev, int *mem, int *maker, int *overVolted)
   else if (strcmp (c, "000f") == 0) { *model = PI_MODEL_B  ; *rev = PI_VERSION_2   ; *mem = 512 ; *maker = PI_MAKER_EGOMAN ; }
   else if (strcmp (c, "0010") == 0) { *model = PI_MODEL_BP ; *rev = PI_VERSION_1_2 ; *mem = 512 ; *maker = PI_MAKER_SONY   ; }
   else if (strcmp (c, "0011") == 0) { *model = PI_MODEL_CM ; *rev = PI_VERSION_1_2 ; *mem = 512 ; *maker = PI_MAKER_SONY   ; }
-//add for BananaPro by LeMaker team
-  else if (strcmp (c, "0000") == 0) { *model = PI_MODEL_BPR;  *rev = PI_VERSION_1_2;  *mem = 1024;  *maker = PI_MAKER_LEMAKER;}
-//end 2014.09.30
+//add for Orange Pi Zero by pel
+  else if (strcmp (c, "0000") == 0) { *model = PI_MODEL_OPZ;  *rev = PI_VERSION_UNKNOWN;  *mem = 512;  *maker = PI_MAKER_UNKNOWN;}
+//end 
   else                              { *model = 0           ; *rev = 0              ; *mem =   0 ; *maker = 0 ;               }
 }
  
