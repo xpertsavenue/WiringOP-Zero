@@ -1279,7 +1279,7 @@ int main (int argc, char *argv [])
     }
     else
     {
-      printf ("Banana Pro Details:\n") ;
+      printf ("Board details:\n") ;
       printf ("  Type: %s, Revision: %s, Memory: %dMB, Maker: %s %s\n", 
 	  piModelNames [model], piRevisionNames [rev], mem, piMakerNames [maker], overVolted ? "[OV]" : "") ;
     }
