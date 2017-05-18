@@ -76,7 +76,7 @@
 #define	PI_MODEL_B		2
 #define	PI_MODEL_BP		3
 #define	PI_MODEL_CM		4
-#define   PI_MODEL_BPR   5 //add for BananaPro by LeMaker team
+#define PI_MODEL_OPZ            5 
 
 #define	PI_VERSION_UNKNOWN	0
 #define	PI_VERSION_1		1
@@ -88,13 +88,12 @@
 #define	PI_MAKER_EGOMAN		1
 #define	PI_MAKER_SONY		2
 #define	PI_MAKER_QISDA		3
-#define   PI_MAKER_LEMAKER  4  //add for BananaPro by LeMaker team
 
 #define BPRVER 3  //add for BananaPro by lemaker team
 
 extern const char *piModelNames    [6] ;
 extern const char *piRevisionNames [5] ;
-extern const char *piMakerNames    [5] ;
+extern const char *piMakerNames    [4] ;
 
 
 //	Intended for the GPIO program Use at your own risk.
