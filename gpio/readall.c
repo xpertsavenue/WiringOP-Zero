@@ -172,9 +172,9 @@ static void readallPhys (int physPin)
   int pin ;
 
   if (physPinToGpio (physPin) == -1)
-    printf (" |     |    ") ;
+    printf ("|     |    ") ;
   else
-    printf (" | %3d | %3d", physPinToGpio (physPin), physToWpi [physPin]) ;
+    printf ("| %3d | %3d", physPinToGpio (physPin), physToWpi [physPin]) ;
 
   printf (" | %s", physNames [physPin]) ;
 
@@ -270,22 +270,22 @@ void abReadall (int model, int rev)
     else
       type = "B1" ;
 
-  printf (" +-----+-----+---------+------+---+-Model %s-+---+------+---------+-----+-----+\n", type) ;
-  printf (" | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |\n") ;
-  printf (" +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+\n") ;
+  printf ("+-----+-----+---------+------+---+-Model %s-+---+------+---------+-----+-----+\n", type) ;
+  printf ("| BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |\n") ;
+  printf ("+-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+\n") ;
   for (pin = 1 ; pin <= 26 ; pin += 2)
     readallPhys (pin) ;
 
   if (rev == PI_VERSION_2) // B version 2
   {
-    printf (" +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+\n") ;
+    printf ("+-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+\n") ;
     for (pin = 51 ; pin <= 54 ; pin += 2)
       readallPhys (pin) ;
   }
 
-  printf (" +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+\n") ;
-  printf (" | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |\n") ;
-  printf (" +-----+-----+---------+------+---+-Model %s-+---+------+---------+-----+-----+\n", type) ;
+  printf ("+-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+\n") ;
+  printf ("| BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |\n") ;
+  printf ("+-----+-----+---------+------+---+-Model %s-+---+------+---------+-----+-----+\n", type) ;
 }
 
 
@@ -299,14 +299,14 @@ void bPlusReadall (void)
 {
   int pin ;
 
-  printf (" +-----+-----+---------+------+---+--B Plus--+---+------+---------+-----+-----+\n") ;
-  printf (" | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |\n") ;
-  printf (" +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+\n") ;
+  printf ("+-----+-----+---------+------+---+--B Plus--+---+------+---------+-----+-----+\n") ;
+  printf ("| BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |\n") ;
+  printf ("+-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+\n") ;
   for (pin = 1 ; pin <= 40 ; pin += 2)
     readallPhys (pin) ;
-  printf (" +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+\n") ;
-  printf (" | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |\n") ;
-  printf (" +-----+-----+---------+------+---+--B Plus--+---+------+---------+-----+-----+\n") ;
+  printf ("+-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+\n") ;
+  printf ("| BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |\n") ;
+  printf ("+-----+-----+---------+------+---+--B Plus--+---+------+---------+-----+-----+\n") ;
 }
 
 //add for BananaPro by lemaker team
@@ -314,14 +314,14 @@ void BPReadAll(void)
 {
   int pin ;
 
-  printf (" +-----+-----+---------+------+---+--Banana Pro--+---+------+---------+-----+-----+\n") ;
-  printf (" | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |\n") ;
-  printf (" +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+\n") ;
+  printf ("+-----+-----+---------+------+---+--Banana Pro--+------+---------+-----+-----+\n") ;
+  printf ("| BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |\n") ;
+  printf ("+-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+\n") ;
   for (pin = 1 ; pin <= 40 ; pin += 2)
     readallPhys (pin) ;
-  printf (" +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+\n") ;
-  printf (" | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |\n") ;
-  printf (" +-----+-----+---------+------+---+--Banana Pro--+---+------+---------+-----+-----+\n") ;	
+  printf ("+-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+\n") ;
+  printf ("| BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |\n") ;
+  printf ("+-----+-----+---------+------+---+--Banana Pro--+------+---------+-----+-----+\n") ;	
 }
 //end 2014.09.26
 
@@ -330,16 +330,16 @@ void OrangePiReadAll(void)
 {
   int pin ;
 
-  printf (" +-----+-----+----------+------+--Orange Pi Zero--+---+------+---------+-----+--+\n") ;
-  printf (" | H2+ | wPi |   Name   | Mode | V | Physical | V | Mode | Name     | wPi | H2+ |\n") ;
-  printf (" +-----+-----+----------+------+---+----++----+---+------+----------+-----+-----+\n") ;
+  printf ("+-----+-----+----------+------+--Orange Pi Zero--+------+----------+-----+-----+\n") ;
+  printf ("| H2+ | wPi |   Name   | Mode | V | Physical | V | Mode | Name     | wPi | H2+ |\n") ;
+  printf ("+-----+-----+----------+------+---+----++----+---+------+----------+-----+-----+\n") ;
   for (pin = 1 ; pin <= 26 ; pin += 2)
     readallPhys (pin) ;
-  printf (" +-----+-----+----------+------+---+---LEDs---+---+------+----------+-----+-----+\n") ;	
+  printf ("+-----+-----+----------+------+---+---LEDs---+---+------+----------+-----+-----+\n") ;	
   readallPhys (27) ;
-  printf (" +-----+-----+----------+------+---+-----+----+---+------+----------+-----+-----+\n") ;
-  printf (" | H2+ | wPi |   Name   | Mode | V | Physical | V | Mode | Name     | wPi | H2+ |\n") ;	
-   printf (" +-----+-----+----------+------+--Orange Pi Zero--+---+------+---------+-----+--+\n") ;	
+  printf ("+-----+-----+----------+------+---+-----+----+---+------+----------+-----+-----+\n") ;
+  printf ("| H2+ | wPi |   Name   | Mode | V | Physical | V | Mode | Name     | wPi | H2+ |\n") ;	
+  printf ("+-----+-----+----------+------+--Orange Pi Zero--+---+------+---------+-----+--+\n") ;	
 }
 // changed by Christian Beckert
 
@@ -361,8 +361,8 @@ void doReadall (void)
     bPlusReadall () ;
   else if (model == PI_MODEL_CM)
     cmReadall () ;
-  else if (model == PI_MODEL_BPR) //add for BananaPro by lemaker team
-	 OrangePiReadAll();	//guenter / // changed by Christian Beckert 
+  else if (model == PI_MODEL_OPZ) //add for BananaPro by lemaker team
+     OrangePiReadAll();	//guenter / // changed by Christian Beckert 
   else
     printf ("Oops - unable to determine board type... model: %d\n", model) ;
 }
