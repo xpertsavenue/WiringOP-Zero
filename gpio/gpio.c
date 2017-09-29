@@ -449,12 +449,15 @@ void doExport (int argc, char *argv [])
 
   pin = atoi (argv [2]) ;
 
-/*add for BananaPro by LeMaker team*/
- if (pin == 0)
+/*add for BananaPro by LeMaker team <-- the OrangePi ZERO has 0 pin (h2+ = 0, wPi = 2, Phys = 13),  
+	                                    (for example, because of this, interrupts on 0 pin do not work "gpio edge 0 falling" or in code: "wiringPiISR (2, INT_EDGE_FALLING, my_interrupt);")*/
+/*
+  if (pin == 0)
   {
 	printf("%d is invalid pin,please check it over.\n",pin);
 	return ;
   }
+*/
  /*end 2014.08.19*/
 
   mode = argv [3] ;
@@ -568,12 +571,15 @@ void doEdge (int argc, char *argv [])
   pin  = atoi (argv [2]) ;
   mode = argv [3] ;
 
-/*add for BananaPro by LeMaker team*/
-	if (pin==0)
+/*add for BananaPro by LeMaker team <-- the OrangePi ZERO has 0 pin (h2+ = 0, wPi = 2, Phys = 13), 
+	                                    (for example, because of this, interrupts on 0 pin do not work "gpio edge 0 falling" or in code: "wiringPiISR (2, INT_EDGE_FALLING, my_interrupt);")*/
+/*
+  if (pin==0)
   {
 	printf("%d is invalid pin,please check it over.\n",pin);
 	return ;
   }
+*/
 /*end 2014.08.19*/
 
 // Export the pin and set direction to input
@@ -653,12 +659,15 @@ void doUnexport (int argc, char *argv [])
 
   pin = atoi (argv [2]) ;
 
-  /*add for BananaPro by LeMaker team*/
-	if (pin==0)
+  /*add for BananaPro by LeMaker team <-- the OrangePi ZERO has 0 pin (h2+ = 0, wPi = 2, Phys = 13), 
+	                                    (for example, because of this, interrupts on 0 pin do not work "gpio edge 0 falling" or in code: "wiringPiISR (2, INT_EDGE_FALLING, my_interrupt);")*/
+/*
+  if (pin==0)
   {
 	printf("%d is invalid pin,please check it over.\n",pin);
 	return ;
   }
+*/
 	/*end 2014.08.19*/
 
   if ((fd = fopen ("/sys/class/gpio/unexport", "w")) == NULL)
