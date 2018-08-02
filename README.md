@@ -4,7 +4,36 @@ WiringPi / WiringOP libary for the Orange Pi Zero with 26 pin GPIO header
 
 This is a modified WiringPi for specially OrangePi Zero. 
 
-GPIO is fully working, i2c and Spi not testet yet!
+GPIO is fully working, i2c not tested yet!
+
+    SPI is tested on Armbian with legacy kernel:
+        The SPI channel 0 is used for SPI Flash and channel 1 is available
+        for use in GPIO pins...
+        > bin2fex /boot/script.bin script.fex
+        > nano script.fex
+          Add following lines:
+              [spi1_para]
+              spi_used = 1
+              spi_cs_bitmap = 1
+              spi_cs0 = port:PA13<2><1><default><default>
+              spi_sclk = port:PA14<2><default><default><default>
+              spi_mosi = port:PA15<2><default><default><default>
+              spi_miso = port:PA16<2><default><default><default>
+              
+              [spi_devices]
+              spi_dev_num = 2
+
+              [spi_board1]
+              modalias = "spidev"
+              max_speed_hz = 33000000
+              bus_num = 1
+              chip_select = 0
+              mode = 0
+              full_duplex = 1
+              manual_cs = 0
+
+        > fex2bin script.fex bin/orangepizero.bin
+        > reboot -i
 
 
 ## Download
