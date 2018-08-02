@@ -478,13 +478,18 @@ void doExport (int argc, char *argv [])
     exit (1) ;
   }
 
-  /**/ if ((strcasecmp (mode, "in")  == 0) || (strcasecmp (mode, "input")  == 0))
+  
+  /**/ if ((strcasecmp (mode, "in")   == 0) || (strcasecmp (mode, "input")  == 0))
     fprintf (fd, "in\n") ;
-  else if ((strcasecmp (mode, "out") == 0) || (strcasecmp (mode, "output") == 0))
+  else if ((strcasecmp (mode, "out")  == 0) || (strcasecmp (mode, "output") == 0))
     fprintf (fd, "out\n") ;
+  else if ((strcasecmp (mode, "high") == 0) || (strcasecmp (mode, "up")     == 0))
+    fprintf (fd, "high\n") ;
+  else if ((strcasecmp (mode, "low")  == 0) || (strcasecmp (mode, "down")   == 0))
+    fprintf (fd, "low\n") ;
   else
   {
-    fprintf (stderr, "%s: Invalid mode: %s. Should be in or out\n", argv [1], mode) ;
+    fprintf (stderr, "%s: Invalid mode: %s. Should be in, out, high or low\n", argv [1], mode) ;
     exit (1) ;
   }
 
@@ -497,7 +502,9 @@ void doExport (int argc, char *argv [])
 
   sprintf (fName, "/sys/class/gpio/gpio%d/edge", pin) ;
   changeOwner (argv [0], fName) ;
-
+  
+  sprintf (fName, "/sys/class/gpio/gpio%d/active_low", pin) ;
+  changeOwner (argv [0], fName) ;
 }
 
 
