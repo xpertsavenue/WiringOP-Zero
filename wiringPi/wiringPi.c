@@ -1289,6 +1289,8 @@ int isH3(void)
   FILE *cpuFd ;
   char line [120] ;
   char *d;
+  return 1;//by chen
+
 	if ((cpuFd = fopen ("/proc/cpuinfo", "r")) == NULL)
 		piBoardRevOops ("Unable to open /proc/cpuinfo") ;
 	  while (fgets (line, 120, cpuFd) != NULL)
@@ -1417,7 +1419,8 @@ int piBoardRev (void)
 void piBoardId (int *model, int *rev, int *mem, int *maker, int *overVolted)
 {
   FILE *cpuFd ;
-  char line [120] ;
+//  char line [120] ;  //edit by chen
+  char *line="Revision        : 0000";
   char *c ;
 
   (void)piBoardRev () ;	// Call this first to make sure all's OK. Don't care about the result.
@@ -1425,9 +1428,9 @@ void piBoardId (int *model, int *rev, int *mem, int *maker, int *overVolted)
   if ((cpuFd = fopen ("/proc/cpuinfo", "r")) == NULL)
     piBoardRevOops ("Unable to open /proc/cpuinfo") ;
 
-  while (fgets (line, 120, cpuFd) != NULL)
-    if (strncmp (line, "Revision", 8) == 0)
-      break ;
+//  while (fgets (line, 120, cpuFd) != NULL)
+//    if (strncmp (line, "Revision", 8) == 0)
+//      break ;
 
   fclose (cpuFd) ;
 
