@@ -1,10 +1,12 @@
 # WiringOP-Zero
 
-WiringPi / WiringOP libary for the Orange Pi Zero with 26 pin GPIO header
+This library is a fork of WiringPi / WiringOP libary by xpertsavenue for the Orange Pi Zero with 26 pin GPIO header
+
+A well known bug of an "eternal loop" occuring for Interrupt bug is fixed.
 
 This is a modified WiringPi for specially OrangePi Zero. 
 
-GPIO is fully working, i2c not tested yet!
+GPIO, SPI and Interrupt are working properly!
 
     SPI is tested on Armbian with legacy kernel:
         The SPI channel 0 is used for SPI Flash and channel 1 is available
@@ -35,9 +37,8 @@ GPIO is fully working, i2c not tested yet!
         > fex2bin script.fex bin/orangepizero.bin
         > reboot -i
 
-
 ## Download
-    git clone https://github.com/xpertsavenue/WiringOP-Zero.git
+    git clone https://github.com/sunzone93/WiringOP-Zero.git
 ## Installation
     cd WiringOP-Zero
     chmod +x ./build
